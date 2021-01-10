@@ -1,0 +1,137 @@
+@import "./src/styles/core";
+
+.header {
+  background-color: transparent;
+
+  .title-header {
+    font-family: $shoulders-fonts;
+    padding: 50px;
+    font-size: 28px;
+    line-height: 30px;
+    animation: neon 4s steps(1, start) infinite reverse;
+  }
+
+  // animation
+  @keyframes neon {
+    0% {
+      color: $colorPrimary;
+      text-shadow: 0 0 7px #0b3960, 0 0 8px #0b3960;
+    }
+    80% {
+      color: $colorWhite;
+      text-shadow: 0 0 6px #fff, 0 0 10px #fff, 0 0 50px #79a7fc;
+    }
+    81% {
+      color: $colorWhite;
+      text-shadow: 0 0 6px #fff, 0 0 10px #fff, 0 0 50px #79a7fc;
+    }
+    82% {
+      color: $colorPrimary;
+      text-shadow: 0 0 7px #0b3960, 0 0 8px #0b3960;
+    }
+    83% {
+      color: $colorWhite;
+      text-shadow: 0 0 6px #fff, 0 0 10px #fff, 0 0 50px #79a7fc;
+    }
+    84% {
+      color: $colorPrimary;
+      text-shadow: 0 0 7px #0b3960, 0 0 8px #0b3960;
+    }
+    85% {
+      color: $colorWhite;
+      text-shadow: 0 0 6px #fff, 0 0 10px #fff, 0 0 50px #79a7fc;
+    }
+    100% {
+      color: $colorPrimary;
+      text-shadow: 0 0 7px #0b3960, 0 0 8px #0b3960;
+    }
+  }
+}
+
+
+.container {
+
+  .search {
+    max-width: 380px;
+    margin: 10px;
+
+    .input {
+      width: 100%;
+      padding: 3px 7px;
+      font-size: 18px;
+      border-radius: 7px;
+    }
+
+    .input:hover {
+      border-radius: 3px solid $colorSecondary;
+      cursor: pointer;
+    }
+  }
+
+  .title {
+    margin: 12px;
+  }
+
+  .items-list {
+    margin: 5px;
+
+    .item {
+      max-width: 350px;
+      background-color: $colorPrimary;
+      padding: 5px 10px;
+      margin: 5px;
+      border-radius: 7px;
+      border: 1px solid $colorPrimary;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .description-button {
+      border-radius: 5px;
+      padding: 3px;
+      cursor: pointer;
+    }
+
+    .description-button:hover {
+      color: $colorSecondary;
+    }
+  }
+
+  .item:hover {
+    border: 1px solid $colorWhite;
+  }
+}
+
+.pagination {
+  margin: 40px 10px 0 10px;
+
+  ul {
+    padding: 8px 0;
+    max-width: 380px;
+    border-radius: 7px;
+    background-color: $colorPrimary;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    li {
+      border: 2px solid $colorPrimary;
+      border-radius: 7px;
+      padding: 3px;
+    }
+
+    li:hover {
+      border: 2px solid $colorWhite;
+    }
+  }
+
+  .active {
+    color: $colorBlack;
+
+  }
+}
+
+
+
+
+

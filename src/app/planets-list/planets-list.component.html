@@ -1,0 +1,37 @@
+<header class="header">
+  <h1 class="title-header" routerLink="/">List of Planets</h1>
+</header>
+
+<section class="container">
+
+  <div class="search">
+    <input type="search" class="input"
+           placeholder="Search your planet">
+  </div>
+
+
+
+
+
+  <h2 class="title">List of Planets:</h2>
+  <div class="items-list">
+    <div class="item" *ngFor="let planet of planetsList?.results; let i = index">
+      <div class="name">{{planet.name}}</div>
+      <button class="description-button" routerLink="/planet-description/{{ (i + index ) - 1 }}">Show more</button>
+    </div>
+  </div>
+
+  <div class="pagination" *ngIf="planetsList?.results.length">
+    <ul>
+      <li><a href="#" (click)="goBackPage($event)"><<</a></li>
+      <li *ngFor="let p of pages">
+        <a [class.active]="p === numberPage - 1" href="#"
+           (click)="goToPage(p + 1, $event)"
+        >{{ p + 1 }}</a>
+      </li>
+      <li><a href="#" (click)="goNextPage($event)">>></a></li>
+    </ul>
+  </div>
+</section>
+
+
