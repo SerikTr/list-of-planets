@@ -1,23 +1,20 @@
 <header class="header">
-  <h1 class="title-header" routerLink="/">List of Planets</h1>
+  <h1 class="title-header animation" routerLink="/">Star Wars Planets</h1>
 </header>
 
 <section class="container">
-
   <app-search-container></app-search-container>
-
   <h2 class="title">List of Planets:</h2>
   <div class="items-list">
     <div class="item" *ngFor="let planet of planetsList?.results; let i = index">
       <div class="name">{{planet.name}}</div>
-      <button class="description-button" routerLink="/planet-description/{{ (i + index ) - 1 }}">About</button>
+      <button class="description-button" routerLink="/planet-description/{{ (i + index  ) - 1 }}">About</button>
     </div>
   </div>
-
   <div class="pagination" *ngIf="planetsList?.results.length">
     <ul>
       <li><a href="#" (click)="goPreviousPage($event)"><<</a></li>
-      <li *ngFor="let p of pages">
+      <li *ngFor="let p of pages"  >
         <a [class.active]="p === numberPage - 1" href="#"
            (click)="goToPage(p + 1, $event)"
         >{{ p + 1 }}</a>
@@ -26,5 +23,6 @@
     </ul>
   </div>
 </section>
+
 
 

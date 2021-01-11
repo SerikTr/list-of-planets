@@ -9,29 +9,16 @@ import {SearchService} from '../../../shared/services/search.service';
 })
 export class SearchContainerComponent {
 
-  inputTouched = false;
-  loading = false;
   results;
-
-
-
-
+  indexP: number;
 
   constructor(private searchService: SearchService) {
   }
 
   handleSearch(inputValue: string) {
-    // this.loading = true;
     this.searchService.getNamesPlanets(inputValue)
       .subscribe(items => {
         this.results = items;
-
-      })
-        // this.inputTouched = true;
-        // this.loading = false;
-
+      });
   }
-
-
-
 }

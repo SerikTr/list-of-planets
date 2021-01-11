@@ -1,4 +1,4 @@
-import {PlanetDescription} from '../planet-description/planet-description';
+import {PlanetDescription} from './planet-description';
 
 export interface PageNavigation {
   count?: number;

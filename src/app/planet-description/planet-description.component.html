@@ -1,6 +1,9 @@
 <section class="container">
   <div class="card" *ngIf="planetDescription">
-    <h2 class=headline>{{planetDescription.name}}</h2>
+    <div class="wrapper">
+      <h2>{{planetDescription.name}}</h2>
+      <button class="button" [routerLink]="'/'">Back</button>
+    </div>
     <hr>
     <p>Rotation period: <span> {{planetDescription.rotation_period}}</span> hours</p>
     <p>Orbital period: <span>{{planetDescription.orbital_period}}</span> days</p>
@@ -10,6 +13,7 @@
     <p>Terrain: <span>{{planetDescription.terrain}}</span></p>
     <p>Surface water: <span>{{planetDescription.surface_water}}</span></p>
     <p>Population: <span>{{planetDescription.population}}</span> people</p>
-    <button class="button" [routerLink]="'/'">Back</button>
   </div>
 </section>
+
+

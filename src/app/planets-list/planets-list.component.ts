@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {PlanetsListService} from './planets-list.service';
+import {Component, OnInit} from '@angular/core';
 import {delay} from 'rxjs/operators';
 import {PageService} from '../shared/services/page.service';
+import {PlanetsListService} from '../shared/services/planets-list.services';
 
 
 @Component({
@@ -59,5 +59,4 @@ export class PlanetsListComponent implements OnInit {
       this.getPlanetsList();
     }
   }
-
 }

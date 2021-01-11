@@ -10,22 +10,22 @@ import {debounceTime, distinctUntilChanged, filter, map, pluck} from 'rxjs/opera
 export class SearchInputComponent implements AfterViewInit {
 
   @ViewChild('input') inputElement: ElementRef;
-  @Output() search : EventEmitter<string> = new EventEmitter<string>()
+  @Output() search: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngAfterViewInit() {
     fromEvent(this.inputElement.nativeElement, 'keyup')
       .pipe(
-        debounceTime(500),
+        debounceTime(400),
         pluck('target', 'value'),
         distinctUntilChanged(),
         filter((value: string) => value.length > 3),
         map((value) => value)
-
       )
       .subscribe(value => {
-        this.search.emit(value)
+        this.search.emit(value);
       });
   }
 

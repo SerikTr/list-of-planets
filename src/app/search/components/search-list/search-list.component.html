@@ -1,24 +1,17 @@
-
-<div>
-  <div  *ngFor="let plan of planet?.results; let i = index">
-    <div >
+<section>
+  <div class="card" *ngFor="let plan of planet?.results">
+    <div>
       <p>{{plan.name}}</p>
-      <button class="description-button" routerLink="/planet-description/{{ (i + index ) - 1 }}">About</button>
-
-<!--        <div >-->
-
-<!--          <span  style="font-weight: bolder;">{{ video.publishedAt | date:'mediumDate' }}</span>-->
-<!--        </div>-->
-<!--        <div >-->
-<!--          {{ video.description?.slice(0,50) }}...-->
-<!--        </div>-->
-
-<!--      <a [href]="video.videoUrl" target="_blank">-->
-<!--        <button >-->
-<!--          <i></i>-->
-<!--          Watch-->
-<!--        </button>-->
-<!--      </a>-->
+      <hr>
+      <p>Rotation period: <span> {{plan.rotation_period}}</span> hours</p>
+      <p>Orbital period: <span>{{plan.orbital_period}}</span> days</p>
+      <p>Diameter: <span>{{plan.diameter}}</span> km</p>
+      <p>Climate: <span>{{plan.climate}}</span></p>
+      <p>Gravity: <span>{{plan.gravity}}</span></p>
+      <p>Terrain: <span>{{plan.terrain}}</span></p>
+      <p>Surface water: <span>{{plan.surface_water}}</span></p>
+      <p>Population: <span>{{plan.population}}</span> people</p>
     </div>
   </div>
-</div>
+</section>
+
