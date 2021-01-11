@@ -1,10 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PlanetsListService} from './planets-list.service';
-import {debounceTime, delay, distinctUntilChanged, filter, map} from 'rxjs/operators';
-import {Observable, Subject} from 'rxjs';
-import {environment} from '../../environments/environment';
-import {HttpClient} from '@angular/common/http';
-import {FormGroup, Validators} from '@angular/forms';
+import {delay} from 'rxjs/operators';
+import {PageService} from '../shared/services/page.service';
 
 
 @Component({
@@ -16,23 +13,18 @@ export class PlanetsListComponent implements OnInit {
 
   planetsList;
   pages: Array<number> = [];
-  numberPage: number;
-  perPage: number;
+  numberPage: number = 1;
+  perPage: number = 10;
   index: number;
   totalPages: number;
 
 
-
-  constructor(private planetsListService: PlanetsListService) {
+  constructor(private planetsListService: PlanetsListService,
+              private pageService: PageService) {
   }
 
   ngOnInit() {
-    this.numberPage = 1;
-    this.perPage = 10;
     this.getPlanetsList();
-
-
-
   }
 
   private getPlanetsList() {
@@ -40,12 +32,12 @@ export class PlanetsListComponent implements OnInit {
       .pipe(delay(200))
       .subscribe(planets => {
         this.planetsList = planets;
-        this.calculatePages();
-        this.calculateIndex();
+        this.pages = this.pageService.calculatePages(this.planetsList, this.perPage, this.totalPages);
+        this.index = this.pageService.calculateIndex(this.perPage, this.numberPage);
       });
   }
 
-  goBackPage(event: Event) {
+  goPreviousPage(event: Event) {
     event.preventDefault();
     if (this.numberPage > 1) {
       this.numberPage--;
@@ -68,17 +60,4 @@ export class PlanetsListComponent implements OnInit {
     }
   }
 
-  private calculateIndex() {
-    this.index = this.perPage * (this.numberPage - 1) + 2;
-  }
-
-  private calculatePages() {
-    this.totalPages = Math.ceil(this.planetsList.count / this.perPage);
-    this.pages = [];
-    const minPage = 0;
-    const maxPage = this.totalPages;
-    for (let i = minPage; i < maxPage; i++) {
-      this.pages.push(i);
-    }
-  }
 }

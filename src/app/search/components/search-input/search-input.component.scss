@@ -1,0 +1,20 @@
+@import "./src/styles/core";
+
+
+.search {
+  max-width: 380px;
+  margin: 10px;
+
+  .input {
+    width: 100%;
+    padding: 3px 7px;
+    font-size: 18px;
+    border-radius: 7px;
+  }
+
+  .input:hover {
+    border-radius: 3px solid $colorSecondary;
+    cursor: pointer;
+  }
+}
+

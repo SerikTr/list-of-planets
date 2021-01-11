@@ -51,23 +51,6 @@
 
 .container {
 
-  .search {
-    max-width: 380px;
-    margin: 10px;
-
-    .input {
-      width: 100%;
-      padding: 3px 7px;
-      font-size: 18px;
-      border-radius: 7px;
-    }
-
-    .input:hover {
-      border-radius: 3px solid $colorSecondary;
-      cursor: pointer;
-    }
-  }
-
   .title {
     margin: 12px;
   }
@@ -95,11 +78,12 @@
     .description-button:hover {
       color: $colorSecondary;
     }
+
+    .item:hover {
+      border: 1px solid $colorWhite;
+    }
   }
 
-  .item:hover {
-    border: 1px solid $colorWhite;
-  }
 }
 
 .pagination {

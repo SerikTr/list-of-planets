@@ -4,26 +4,19 @@
 
 <section class="container">
 
-  <div class="search">
-    <input type="search" class="input"
-           placeholder="Search your planet">
-  </div>
-
-
-
-
+  <app-search-container></app-search-container>
 
   <h2 class="title">List of Planets:</h2>
   <div class="items-list">
     <div class="item" *ngFor="let planet of planetsList?.results; let i = index">
       <div class="name">{{planet.name}}</div>
-      <button class="description-button" routerLink="/planet-description/{{ (i + index ) - 1 }}">Show more</button>
+      <button class="description-button" routerLink="/planet-description/{{ (i + index ) - 1 }}">About</button>
     </div>
   </div>
 
   <div class="pagination" *ngIf="planetsList?.results.length">
     <ul>
-      <li><a href="#" (click)="goBackPage($event)"><<</a></li>
+      <li><a href="#" (click)="goPreviousPage($event)"><<</a></li>
       <li *ngFor="let p of pages">
         <a [class.active]="p === numberPage - 1" href="#"
            (click)="goToPage(p + 1, $event)"
