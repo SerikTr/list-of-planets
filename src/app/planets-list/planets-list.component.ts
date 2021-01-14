@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {delay} from 'rxjs/operators';
 import {PageService} from '../shared/services/page.service';
 import {PlanetsListService} from '../shared/services/planets-list.services';
 
@@ -27,9 +26,9 @@ export class PlanetsListComponent implements OnInit {
     this.getPlanetsList();
   }
 
+
   private getPlanetsList() {
     this.planetsListService.getPlanetsList(this.numberPage)
-      .pipe(delay(200))
       .subscribe(planets => {
         this.planetsList = planets;
         this.pages = this.pageService.calculatePages(this.planetsList, this.perPage, this.totalPages);
@@ -59,4 +58,8 @@ export class PlanetsListComponent implements OnInit {
       this.getPlanetsList();
     }
   }
+
 }
+
+
+

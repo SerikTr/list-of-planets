@@ -1,9 +1,21 @@
 <div class="search">
   <input
-         type="search" class="input"
-         #input
-         maxlength="22"
-         placeholder="Search your planet">
+    [(ngModel)]="inputValue"
+    type="text" class="input"
+    #input
+    maxlength="22"
+    placeholder="Search your planet">
+  <div *ngIf="inputValue.length <= 3 && inputValue.length >= 1" class="danger">Field search cannot be less than 3
+    characters
+  </div>
+  <div *ngIf="inputValue.length == 22" class="danger">Search field can contain up to 22 characters</div>
+  <div *ngIf="inputValue">
+    <button class="button"
+            (click)="clearInput()"
+    >Clear
+    </button>
+  </div>
 </div>
+
 
 

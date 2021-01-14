@@ -11,6 +11,7 @@ export class SearchInputComponent implements AfterViewInit {
 
   @ViewChild('input') inputElement: ElementRef;
   @Output() search: EventEmitter<string> = new EventEmitter<string>();
+  inputValue = '';
 
   constructor() {
   }
@@ -29,4 +30,7 @@ export class SearchInputComponent implements AfterViewInit {
       });
   }
 
+  clearInput() {
+    this.inputValue = '';
+  }
 }

@@ -74,6 +74,7 @@ body {
 .animation {
   animation: neon 4s steps(1, start) infinite reverse;
 }
+
 @keyframes neon {
   0% {
     color: $colorPrimary;

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // planetApiUrl: 'https://swapi.dev/api/planets/'
-  planetApiUrl: 'http://localhost:8080/api/planets/'
+  planetApiUrl: 'https://swapi.dev/api/planets/'
+  // planetApiUrl: 'http://localhost:8080/api/planets/'
 };
 
 /*
